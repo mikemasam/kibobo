@@ -1,7 +1,10 @@
 
 
-#### Kibobo encryption helper based fully on https://github.com/phpseclib/phpseclib, a copy paste
+#### Kibobo encryption helper based fully on https://github.com/phpseclib/phpseclib, a copy-pasta
 
+
+#### Code Of Conduct
+__It's just a matter of time__
 #### Example 
 ``` php
 <?php
