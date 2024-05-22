@@ -1,17 +1,18 @@
 
 
-# Kibobo encryption helper based fully on https://github.com/phpseclib/phpseclib, a copy paste
+#### Kibobo encryption helper based fully on https://github.com/phpseclib/phpseclib, a copy paste
 
-# Example 
+#### Example 
 ``` php
 <?php
 require("./RSA.php");
 require("./AES.php");
 
 // Example usage
-$key  = "responseKey";  //responseKey
-$data = "responseData"; //responseData
+$encryptedKey  = "responseKey";  //responseKey
+$encryptedData = "responseData"; //responseData
 $privateKey = file_get_contents("./key.pem");
+
 function decryptKey($data, $privateKey){
     $rsa = new RSA();
     $rsa->loadKey($privateKey);
@@ -29,8 +30,9 @@ function decryptData($base64key, $encryptedData)
     $aes->setIV($iv);
     return $aes->decrypt(base64_decode($encryptedData));
 }
-$key = decryptKey($cypherText, $privateKey);
-$output = decryptData($key, $data);
+
+$key = decryptKey($encryptedKey, $privateKey);
+$output = decryptData($key, $encryptedData);
 echo "\n";
 echo $key."\n";
 echo $output."\n";
