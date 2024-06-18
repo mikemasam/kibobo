@@ -7,6 +7,7 @@ openssl base64 -in key.pem -out key_base64.txt
 
 #### extract private and certificate files from pfx
 openssl pkcs12 -in SOURCE.pfx -out key.pem -nocerts -nodes
+
 openssl pkcs12 -in SOURCE.pfx -out cert.pem -nokeys -clcerts
 
 
