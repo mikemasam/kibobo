@@ -1,6 +1,15 @@
 
 
 #### Kibobo encryption helper based fully on https://github.com/phpseclib/phpseclib, a copy-pasta
+
+#### convert private key to base64
+openssl base64 -in key.pem -out key_base64.txt
+
+#### extract private and certificate files from pfx
+openssl pkcs12 -in SOURCE.pfx -out key.pem -nocerts -nodes
+openssl pkcs12 -in SOURCE.pfx -out cert.pem -nokeys -clcerts
+
+
 #### Example 
 ``` php
 <?php
@@ -14,7 +23,7 @@ require("./AES.php");
 // Example usage
 $encryptedKey  = "responseKey";  //responseKey
 $encryptedData = "responseData"; //responseData
-$privateKey = file_get_contents("./key.pem");
+$privateKey = file_get_contents("./key.pem"); //this is a key.pem private key extracted from pfx
 
 function decryptKey($data, $privateKey){
     $rsa = new RSA();
