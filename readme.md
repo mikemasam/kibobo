@@ -4,8 +4,12 @@
 #### Example 
 ``` php
 <?php
+
 require("./RSA.php");
 require("./AES.php");
+//or 
+//require("./crypt.php");
+
 
 // Example usage
 $encryptedKey  = "responseKey";  //responseKey
